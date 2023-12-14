@@ -79,20 +79,6 @@
         app:layout_constraintVertical_bias="0.81"
         app:srcCompat="@mipmap/twitter" />
 
-    <TextView
-        android:id="@+id/contentApp_Logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="App for you"
-        android:textColor="#3F51B5"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
-
     <EditText
         android:id="@+id/editUsername"
         android:layout_width="229dp"
@@ -192,5 +178,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.224" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="-59dp"
+        tools:layout_editor_absoluteY="-29dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
