@@ -122,14 +122,14 @@
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textEmail"
+        app:layout_constraintBottom_toTopOf="@+id/textUsername"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="205dp"
+        android:layout_marginEnd="207dp"
         android:layout_marginBottom="10dp"
         android:text="Name"
         android:textColor="@color/white"
@@ -163,7 +163,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextUsername"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_marginEnd="10dp"
@@ -176,15 +176,15 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textEmail"
+        android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="210dp"
+        android:layout_marginEnd="174dp"
         android:layout_marginBottom="10dp"
-        android:text="Email"
+        android:text="Username"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
