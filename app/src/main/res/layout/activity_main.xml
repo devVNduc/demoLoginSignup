@@ -181,12 +181,28 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
+        android:layout_width="221dp"
+        android:layout_height="208dp"
+        android:layout_marginEnd="216dp"
         android:layout_marginBottom="644dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="231dp"
+        android:layout_height="235dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-259dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/shop"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="190dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
