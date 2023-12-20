@@ -1,5 +1,8 @@
 package com.example.demologinsignup;
 
+import android.text.TextUtils;
+import android.util.Patterns;
+
 public class User {
     private String email;
     private String password;

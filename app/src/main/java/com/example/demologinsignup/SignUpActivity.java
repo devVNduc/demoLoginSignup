@@ -19,12 +19,14 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
+    DatabaseHelper databaseHelper;
     private Button btnLogin,btnSignup,btnSignupDone;
     private EditText editTextUsername,editTextPassword,editTextRePassword,editTextName,editTextPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        databaseHelper = new DatabaseHelper(this);
         // Ánh xạ id
         btnSignupDone=(Button)findViewById(R.id.btnSignupDone);
         btnLogin=(Button)findViewById(R.id.btnLogin);
@@ -47,12 +49,23 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignupDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String SignupName = editTextName.getText().toString().trim();
+                if (isValidFullName(SignupName)){
+                    // Họ tên người hợp lệ
+                    // Tiếp tục xử lý các bước đăng ký khác
+                }
+                else{
+                    showToast("Họ tên người không hợp lệ",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
+                    editTextName.requestFocus();
+                    editTextName.selectAll();
+                    return;
+                }
                 String SignupUsername = editTextUsername.getText().toString().trim();
                 if (isValidUsername(SignupUsername)) {
                     // User hợp lệ
                     // Tiếp tục xử lý các bước đăng ký khác
                 } else {
-                    // Email không hợp lệ
+                    // User không hợp lệ
                     showToast("Username không hợp lệ",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
                     editTextUsername.requestFocus();
                     editTextUsername.selectAll();
@@ -87,38 +100,39 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 else {
                     // Mật khẩu không trùng khớp
-                    showToast("Mật khẩu không trùng khớp",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
+                    showToast("Mật khẩu không trùng khớp", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
                     editTextRePassword.requestFocus();
                     editTextRePassword.selectAll();
                     return;
                 }
-                String SignupName = editTextName.getText().toString().trim();
-                if (isValidFullName(SignupName)){
-                    // Họ tên người hợp lệ
-                    // Tiếp tục xử lý các bước đăng ký khác
-                }
-                else{
-                    showToast("Họ tên người không hợp lệ",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
-                    editTextName.requestFocus();
-                    editTextName.selectAll();
-                    return;
+                Boolean checkUsername = databaseHelper.checkUsername(String.valueOf(editTextUsername));
+//                check xem đã tồn tại username đó hay chưa
+                if(checkUsername == false){
+                    Boolean insert = databaseHelper.insertData(String.valueOf(editTextUsername),String.valueOf(editTextPassword));
+                    if(insert==true){
+                        String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
+
+                        showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
+                        AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
+                        mydialog.setTitle("Thông tin đăng ký");
+                        mydialog.setMessage(TongHop);
+                        mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        mydialog.create().show();
+
+                    }else{
+                        showToast("Đăng ký không thành công", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
+                    }
+                }else{
+                    showToast("Username đã tồn tại", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
                 }
 
-                String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
-                showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
-                AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
-                mydialog.setTitle("Thông tin đăng ký");
-                mydialog.setMessage(TongHop);
-                mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                mydialog.create().show();
             }
         });
-
     }
     @SuppressLint("MissingSuperCall")
     @Override
@@ -194,7 +208,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
     public boolean isValidFullName(String fullName) {
         // Biểu thức chính quy để kiểm tra họ và tên
-        String nameRegex = "^[a-zA-Z\\s]+";
+        String nameRegex = "^[A-Za-z\\s]+$";
         Pattern pattern = Pattern.compile(nameRegex);
 
         // Kiểm tra khớp với biểu thức chính quy
