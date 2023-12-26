@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">demoLoginSignup</string>
+    <string name="trangchu">Trang chủ</string>
+    <string name="thucdon">Thực đơn</string>
+    <string name="nhanvien">Nhân viên</string>
+    <string name="thongke">Thống kê</string>
+    <string name="caidat">Cài đặt</string>
+    <string name="mo">Mở</string>
+    <string name="dong">Đóng</string>
 </resources>
