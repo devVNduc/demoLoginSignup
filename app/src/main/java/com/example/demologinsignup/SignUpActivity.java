@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +20,12 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    DatabaseHelper databaseHelper;
     private Button btnLogin,btnSignup,btnSignupDone;
     private EditText editTextUsername,editTextPassword,editTextRePassword,editTextName,editTextPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        databaseHelper = new DatabaseHelper(this);
         // Ánh xạ id
         btnSignupDone=(Button)findViewById(R.id.btnSignupDone);
         btnLogin=(Button)findViewById(R.id.btnLogin);
@@ -105,31 +104,42 @@ public class SignUpActivity extends AppCompatActivity {
                     editTextRePassword.selectAll();
                     return;
                 }
-                Boolean checkUsername = databaseHelper.checkUsername(String.valueOf(editTextUsername));
-//                check xem đã tồn tại username đó hay chưa
-                if(checkUsername == false){
-                    Boolean insert = databaseHelper.insertData(String.valueOf(editTextUsername),String.valueOf(editTextPassword));
-                    if(insert==true){
-                        String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
-
-                        showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
-                        AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
-                        mydialog.setTitle("Thông tin đăng ký");
-                        mydialog.setMessage(TongHop);
-                        mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                // Creating User Entity
+                User user = new User();
+                user.setUsername(SignupUsername);
+                user.setPassword(SignupPassword);
+                UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                UserDao userDao = userDatabase.userDao();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Register User
+                        userDao.registerUser(user);
+                        runOnUiThread(new Runnable() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
+                            public void run() {
+//                                showToast("Đăng ký thành công !!!", R.layout.custom_toastsuccess_layout, R.drawable.toastsuccess_background);
+                                String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
+                                showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
+                                AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
+                                mydialog.setTitle("Thông tin đăng ký");
+                                mydialog.setMessage(TongHop);
+                                mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                mydialog.create().show();
                             }
                         });
-                        mydialog.create().show();
 
-                    }else{
-                        showToast("Đăng ký không thành công", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
                     }
-                }else{
-                    showToast("Username đã tồn tại", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
-                }
+                }).start();
+
+
+
+
 
             }
         });
@@ -220,7 +230,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Thiết lập thời gian hiển thị và vị trí của Toast
         toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 1200);
+        toast.setGravity(Gravity.CENTER, 0, 1000);
 
         // Tạo đối tượng LayoutInflater để inflate custom layout
         LayoutInflater inflater = getLayoutInflater();

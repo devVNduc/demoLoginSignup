@@ -23,7 +23,6 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
     private Button btnLogin,btnSignup,btnLoginDone;
     private EditText editUsername,editPassword;
-    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         btnLoginDone=(Button)findViewById(R.id.btnLoginDone);
         editUsername=(EditText)findViewById(R.id.editUsername);
         editPassword=(EditText)findViewById(R.id.editPassword);
-        databaseHelper = new DatabaseHelper(this);
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,19 +61,30 @@ public class MainActivity extends AppCompatActivity {
                     // Tiếp tục xử lý các bước đăng ký khác
                 } else {
                     // Mật khẩu không hợp lệ
-                    showToast("Password không hợp lệ",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
+                    showToast("Password không hợp lệ", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
                     editPassword.requestFocus();
                     editPassword.selectAll();
                     return;
                 }
-                Boolean checkCredentials = databaseHelper.checkUsernamePassword(String.valueOf(editUsername),String.valueOf(editPassword));
-                if(checkCredentials==true){
-                    showToast("Đăng nhập thành công",R.layout.custom_toastfail_layout,R.drawable.toastsuccess_background);
-                }
-                else{
-                    showToast("Đăng nhập thất bại",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
-
-                }
+                // Perform query
+                UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                UserDao userDao = userDatabase.userDao();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        User user = userDao.login(LoginUsername,LoginPassword);
+                        if(user == null){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    showToast("Invalid Credentials!!!", R.layout.custom_toastfail_layout, R.drawable.toastfail_background);
+                                }
+                            });
+                        }else{
+                            startActivity(new Intent(MainActivity.this,HomeScreen.class));
+                        }
+                    }
+                }).start();
             }
         });
     }
@@ -149,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Thiết lập thời gian hiển thị và vị trí của Toast
         toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 1200);
+        toast.setGravity(Gravity.CENTER, 0, 1000);
 
         // Tạo đối tượng LayoutInflater để inflate custom layout
         LayoutInflater inflater = getLayoutInflater();
