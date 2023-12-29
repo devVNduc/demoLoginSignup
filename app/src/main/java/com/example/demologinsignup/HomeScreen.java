@@ -1,17 +1,13 @@
 package com.example.demologinsignup;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.Objects;
 
 
 public class HomeScreen extends AppCompatActivity {
@@ -19,7 +15,6 @@ public class HomeScreen extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +24,6 @@ public class HomeScreen extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
