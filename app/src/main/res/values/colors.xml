@@ -6,6 +6,6 @@
     <color name="custom_toastsuccess_background">#009432</color>
     <color name="custom_toastfail_text">#FFFFFFFF</color>
     <color name="custom_toastfail_background">#EA2027</color>
-    <color name="backgroundToolbar">#d77a09</color>
+    <color name="backgroundToolbar">#00bfff</color>
 
 </resources>

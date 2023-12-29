@@ -8,20 +8,25 @@
         android:id="@+id/logoNavigation"
         android:layout_width="76dp"
         android:layout_height="76dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/fllogo"
         android:layout_centerVertical="true"
         android:layout_marginLeft="4dp"
         >
     </de.hdodenhof.circleimageview.CircleImageView>
+
     <TextView
         android:id="@+id/txtTenNhanVien_Navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logoNavigation"
-        android:text="Huy Binh"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_alignLeft="@+id/logoNavigation"
         android:layout_alignStart="@+id/logoNavigation"
-        />
+        android:layout_alignLeft="@+id/logoNavigation"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="18dp"
+        android:text="Huy Bình"
+        android:textColor="#ffa500"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

@@ -14,11 +14,6 @@
             android:checked="true"
             />
         <item
-            android:title="@string/nhanvien"
-            android:icon="@drawable/nhanvien"
-            android:checked="true"
-            />
-        <item
             android:title="@string/thongke"
             android:icon="@drawable/thongke"
             android:checked="true"
@@ -28,6 +23,7 @@
             android:icon="@drawable/caidat"
             android:checked="true"
             />
+
     </group>
 
 </menu>
