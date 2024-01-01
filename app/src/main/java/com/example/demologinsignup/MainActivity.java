@@ -81,7 +81,12 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
-                            startActivity(new Intent(MainActivity.this,HomeScreen.class));
+                            if (LoginUsername.equals("admin")){
+                                startActivity(new Intent(MainActivity.this,HomeScreen.class));
+                            }else{
+                                startActivity(new Intent(MainActivity.this, HomeScreenUser.class));
+                            }
+
                         }
                     }
                 }).start();

@@ -44,6 +44,19 @@ public class SignUpActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Đăng ký thêm tài khoản admin
+        User userAdmin = new User();
+        User user = null;
+        user.setUsername("admin");
+        user.setPassword("Admin123!");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                UserDao userDao = null;
+                userDao.registerUser(userAdmin);
+            }
+        }).start();
+        
         // Xử lý nút login done
         btnSignupDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
                 User user = new User();
                 user.setUsername(SignupUsername);
                 user.setPassword(SignupPassword);
+                // Connect database
                 UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                 UserDao userDao = userDatabase.userDao();
                 new Thread(new Runnable() {
