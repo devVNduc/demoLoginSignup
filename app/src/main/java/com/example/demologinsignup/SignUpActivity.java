@@ -46,13 +46,13 @@ public class SignUpActivity extends AppCompatActivity {
         });
         // Đăng ký thêm tài khoản admin
         User userAdmin = new User();
-        User user = null;
-        user.setUsername("admin");
-        user.setPassword("Admin123!");
+        userAdmin.setUsername("admin");
+        userAdmin.setPassword("Admin123!");
+        UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+        UserDao userDao = userDatabase.userDao();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                UserDao userDao = null;
                 userDao.registerUser(userAdmin);
             }
         }).start();
