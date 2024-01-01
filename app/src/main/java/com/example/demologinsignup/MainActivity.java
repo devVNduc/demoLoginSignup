@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
-                            if (LoginUsername.equals("admin")){
+                            if (LoginUsername.equals("admin") && LoginPassword.equals("Admin123!")){
                                 startActivity(new Intent(MainActivity.this,HomeScreen.class));
                             }else{
                                 startActivity(new Intent(MainActivity.this, HomeScreenUser.class));
