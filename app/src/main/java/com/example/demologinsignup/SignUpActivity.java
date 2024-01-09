@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }).start();
         
-        // Xử lý nút login done
+        // Xử lý nút signup done
         btnSignupDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,7 +244,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Thiết lập thời gian hiển thị và vị trí của Toast
         toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 1000);
+        toast.setGravity(Gravity.CENTER, 0, -1100);
 
         // Tạo đối tượng LayoutInflater để inflate custom layout
         LayoutInflater inflater = getLayoutInflater();

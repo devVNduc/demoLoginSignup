@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Thiết lập thời gian hiển thị và vị trí của Toast
         toast.setDuration(Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 1000);
+        toast.setGravity(Gravity.CENTER, 0, -1100);
 
         // Tạo đối tượng LayoutInflater để inflate custom layout
         LayoutInflater inflater = getLayoutInflater();

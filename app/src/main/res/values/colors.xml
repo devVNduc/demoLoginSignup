@@ -7,5 +7,7 @@
     <color name="custom_toastfail_text">#FFFFFFFF</color>
     <color name="custom_toastfail_background">#EA2027</color>
     <color name="backgroundToolbar">#00bfff</color>
+    <color name="main_color">#F8774A</color>
+
 
 </resources>
