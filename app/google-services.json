@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "711670227548",
+    "firebase_url": "https://demologinsignup-f1b62-default-rtdb.firebaseio.com",
+    "project_id": "demologinsignup-f1b62",
+    "storage_bucket": "demologinsignup-f1b62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711670227548:android:fa4e7437e1df607cd83c99",
+        "android_client_info": {
+          "package_name": "com.example.demologinsignup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711670227548-so303fbm7f02rll19n3g6rfpqtupg03e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demologinsignup",
+            "certificate_hash": "8fe1d805d2d8cc115301e1973c133826daaff660"
+          }
+        },
+        {
+          "client_id": "711670227548-r3pl6flajs4u671bf1qmhdsf0hjfsqds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYShIHiOa3LH-i32MwEAkxG43xxBTxCZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711670227548-r3pl6flajs4u671bf1qmhdsf0hjfsqds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
