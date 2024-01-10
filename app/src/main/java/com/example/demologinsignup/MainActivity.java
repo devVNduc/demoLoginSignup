@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         // Got an ID token from Google. Use it to authenticate
                         // with your backend.
                         Log.d("TAG", "Got ID token.");
-                        Intent intent = new Intent(MainActivity.this,HomeScreenUser.class);
+                        Intent intent = new Intent(MainActivity.this,HomeUser2.class);
                         startActivity(intent);
 
                     } else if (password != null) {
