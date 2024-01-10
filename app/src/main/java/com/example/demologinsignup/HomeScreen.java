@@ -83,7 +83,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // Chuyển đến màn hình đăng nhập hoặc màn hình khác tùy thuộc vào logic của ứng dụng
         resetAppState();
-        // Đóng màn hình hiện tại (MainActivity) để ngăn người dùng trở lại nó bằng cách nhấn nút "Back"
+        // Đóng màn hình hiện tại (MainActivity) đaể ngăn người dùng trở lại nó bằng cách nhấn nút "Back"
         finish();
     }
 

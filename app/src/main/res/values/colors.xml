@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#F75564</color>
     <color name="custom_toastsuccess_text">#FF000000</color>
     <color name="custom_toastsuccess_background">#009432</color>
     <color name="custom_toastfail_text">#FFFFFFFF</color>
@@ -9,5 +10,6 @@
     <color name="backgroundToolbar">#00bfff</color>
     <color name="main_color">#F8774A</color>
 
-
+    <color name="grey">#F5F5F5</color>
+    <color name="blue_grey">#2E4058</color>
 </resources>
