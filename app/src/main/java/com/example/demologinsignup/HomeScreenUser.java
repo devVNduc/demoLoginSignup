@@ -180,8 +180,8 @@ public class HomeScreenUser extends BaseActivity {
                 Intent intent=new Intent(HomeScreenUser.this, ListFoodsActivity.class);
                 intent.putExtra("text",text);
                 intent.putExtra("isSearch",true);
-
             }
         });
+        binding.cartBtn.setOnClickListener(view -> startActivity(new Intent(HomeScreenUser.this,CartActivity.class)));
     }
 }

@@ -15,9 +15,14 @@
         android:theme="@style/Theme.DemoLoginSignup"
         tools:targetApi="31">
         <activity
-            android:name=".ListFoodsActivity"
+            android:name=".CartActivity"
             android:exported="false" />
-        <!-- <activity -->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListFoodsActivity"
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".LoginWithGG" -->
         <!-- android:exported="false" /> -->
         <activity
@@ -40,9 +45,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
