@@ -121,40 +121,67 @@ public class SignUpActivity extends AppCompatActivity {
                 User user = new User();
                 user.setUsername(SignupUsername);
                 user.setPassword(SignupPassword);
+                user.setPhone(SignupPhone);
                 // Connect database
                 UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                 UserDao userDao = userDatabase.userDao();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Register User
-                        userDao.registerUser(user);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-//                                showToast("Đăng ký thành công !!!", R.layout.custom_toastsuccess_layout, R.drawable.toastsuccess_background);
-                                String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
-                                showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
-                                AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
-                                mydialog.setTitle("Thông tin đăng ký");
-                                mydialog.setMessage(TongHop);
-                                mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Register User
+//                            userDao.registerUser(user);
+                            int countPhone = userDao.checkPhoneExists(SignupPhone);
+                            int countUsername = userDao.checkUsernameExists(SignupUsername);
+                            if (countUsername>0){
+                                runOnUiThread(new Runnable() {
                                     @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
+                                    public void run() {
+                                        showToast("Username Existed!!!",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
+
                                     }
                                 });
-                                mydialog.create().show();
+                            }else{
+                                if(countPhone>0){
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            showToast("Phone Existed!!!",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
+                                        }
+                                    });
+
+                                }else{
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            userDao.registerUser(user);
+                                        }
+                                    }).start();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+//                                showToast("Đăng ký thành công !!!", R.layout.custom_toastsuccess_layout, R.drawable.toastsuccess_background);
+                                            String TongHop = "Name: " + SignupName + "\n" + "Phone: " + SignupPhone + "\n"+ "Username: " + SignupUsername;
+                                            showToast("Đăng ký thành công",R.layout.custom_toastsuccess_layout,R.drawable.toastsuccess_background);
+                                            AlertDialog.Builder mydialog = new AlertDialog.Builder(SignUpActivity.this);
+                                            mydialog.setTitle("Thông tin đăng ký");
+                                            mydialog.setMessage(TongHop);
+                                            mydialog.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.cancel();
+                                                }
+                                            });
+                                            mydialog.create().show();
+                                        }
+                                    });
+                                }
+
                             }
-                        });
-
-                    }
-                }).start();
 
 
 
-
-
+                        }
+                    }).start();
             }
         });
     }

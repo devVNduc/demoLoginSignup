@@ -20,6 +20,7 @@ import com.example.demologinsignup.Domain.Price;
 import com.example.demologinsignup.Domain.Time;
 import com.example.demologinsignup.databinding.ActivityHomeScreenUserBinding;
 import com.example.demologinsignup.databinding.ActivityMainBinding;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +36,7 @@ public class HomeScreenUser extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
         binding=ActivityHomeScreenUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

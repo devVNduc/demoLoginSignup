@@ -6,9 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-    @Database(entities = {User.class},version = 1)
+    @Database(entities = {User.class},version = 5)
     public abstract class UserDatabase extends RoomDatabase {
-        private static final String dbName = "user";
+        private static final String dbName = "usersDBT";
         private static UserDatabase userDatabase;
         public static synchronized UserDatabase getUserDatabase(Context context){
             if (userDatabase == null){

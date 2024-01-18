@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editUsername,editPassword;
     private SignInClient oneTapClient;
     private BeginSignInRequest signUpRequest;
+    private TextView textForgotPassword;
     private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
     private boolean showOneTapUI = true;
     GoogleSignInOptions gso;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textForgotPassword=(TextView)findViewById(R.id.textForgotPassword);
         btnLogin=(Button)findViewById(R.id.btnLogin);
         btnSignup=(Button)findViewById(R.id.btnSignup);
         btnLoginDone=(Button)findViewById(R.id.btnLoginDone);
@@ -99,16 +101,19 @@ public class MainActivity extends AppCompatActivity {
                         // Got an ID token from Google. Use it to authenticate
                         // with your backend.
                         Log.d("TAG", "Got ID token.");
-                        Intent intent = new Intent(MainActivity.this,HomeUser2.class);
+                        Intent intent = new Intent(MainActivity.this,HomeScreenUser.class);
                         startActivity(intent);
 
                     } else if (password != null) {
                         // Got a saved username and password. Use them to authenticate
                         // with your backend.
                         Log.d("TAG", "Got password.");
+                        showToast("Error Pass",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
                     }
                 } catch (ApiException e) {
                     e.printStackTrace();
+                    Log.d("TAG", String.valueOf(e));
+                    showToast("Error Sign",R.layout.custom_toastfail_layout,R.drawable.toastfail_background);
                 }
             }
         });
@@ -129,9 +134,16 @@ public class MainActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 // No saved credentials found. Launch the One Tap sign-up flow, or
                                 // do nothing and continue presenting the signed-out UI.
-                                Log.d("TAG", e.getLocalizedMessage());
+                                Log.d("TAG GG", e.getLocalizedMessage());
                             }
                         });
+            }
+        });
+        textForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SendOTPActivity.class);
+                startActivity(intent);
             }
         });
         btnSignup.setOnClickListener(new View.OnClickListener() {
