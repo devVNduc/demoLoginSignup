@@ -38,6 +38,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.google.code.gson:gson:2.8.9")
     implementation("androidx.room:room-common:2.6.1")
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.firebase:firebase-auth:22.3.0")

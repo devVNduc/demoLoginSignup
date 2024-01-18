@@ -1,4 +1,5 @@
 package com.example.demologinsignup.Domain;
+import com.google.firebase.database.PropertyName;
 
 public class Category {
     private int id;
@@ -14,19 +15,20 @@ public class Category {
     public void setId(int id) {
         this.id = id;
     }
+    @PropertyName("ImagePath")
 
     public String getImagePath() {
         return ImagePath;
     }
-
+    @PropertyName("ImagePath")
     public void setImagePath(String imagePath) {
         ImagePath = imagePath;
     }
-
+    @PropertyName("Name")
     public String getName() {
         return Name;
     }
-
+    @PropertyName("Name")
     public void setName(String name) {
         Name = name;
     }

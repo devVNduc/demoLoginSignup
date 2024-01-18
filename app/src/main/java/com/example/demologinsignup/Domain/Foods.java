@@ -1,6 +1,9 @@
 package com.example.demologinsignup.Domain;
+import com.google.firebase.database.PropertyName;
 
-public class Foods {
+import java.io.Serializable;
+
+public class Foods implements Serializable {
     private int CategoryId;
     private String Descripton;
     private boolean BestFood;
@@ -29,10 +32,12 @@ public class Foods {
         CategoryId = categoryId;
     }
 
+    @PropertyName("Description")
     public String getDescripton() {
         return Descripton;
     }
 
+    @PropertyName("Description")
     public void setDescripton(String descripton) {
         Descripton = descripton;
     }
