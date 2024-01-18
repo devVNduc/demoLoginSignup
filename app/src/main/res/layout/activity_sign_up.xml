@@ -5,21 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/signup">
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="240dp"
+        android:layout_width="187dp"
+        android:layout_height="147dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteY="-16dp" />
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="109dp"
         android:layout_height="50dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="184dp"
         android:background="@drawable/signupstatusshape"
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp"
@@ -29,7 +30,7 @@
         android:topRightRadius="0dp"
         app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,36 +38,22 @@
         android:id="@+id/btnSignup"
         android:layout_width="109dp"
         android:layout_height="50dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="184dp"
         android:background="@drawable/signupstatusshape"
         android:backgroundTint="#6670AF"
         android:text="Sign up"
         android:textColor="@color/black"
         app:backgroundTint="@color/main_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="316dp"
-        android:text="Signup"
-        android:textColor="@color/main_color"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPersonName"
@@ -79,20 +66,20 @@
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="284dp"
         android:text="Name"
         android:textColor="@color/main_color"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPersonName"
@@ -117,8 +104,8 @@
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPersonName"
@@ -156,8 +143,8 @@
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPassword"
@@ -183,7 +170,7 @@
         android:id="@+id/btnSignupDone"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/buttonshape"
         android:text="Sign Up"
         android:textColor="@color/white"
@@ -198,8 +185,8 @@
     <EditText
         android:id="@+id/editTextRePassword"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/textviewshape"
         android:ems="10"
         android:inputType="textPassword"

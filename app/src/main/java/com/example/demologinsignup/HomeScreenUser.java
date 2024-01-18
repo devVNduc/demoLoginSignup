@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.example.demologinsignup.Domain.Price;
 import com.example.demologinsignup.Domain.Time;
 import com.example.demologinsignup.databinding.ActivityHomeScreenUserBinding;
 import com.example.demologinsignup.databinding.ActivityMainBinding;
-import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +37,6 @@ public class HomeScreenUser extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseApp.initializeApp(this);
         binding=ActivityHomeScreenUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -46,6 +46,8 @@ public class HomeScreenUser extends BaseActivity {
         initPrice();
         initBestFood();
         initCategory();
+        setVariable();
+
     }
 
     private void initLocation() {
@@ -166,5 +168,20 @@ public class HomeScreenUser extends BaseActivity {
 
             }
         });
+    }
+    private void setVariable() {
+        binding.logoutBtn.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(HomeScreenUser.this,MainActivity.class));
+        });
+        binding.searchBtn.setOnClickListener(view -> {
+            String text=binding.searchEdt.getText().toString();
+            if(!text.isEmpty()){
+                Intent intent=new Intent(HomeScreenUser.this, ListFoodsActivity.class);
+                intent.putExtra("text",text);
+                intent.putExtra("isSearch",true);
+            }
+        });
+        binding.cartBtn.setOnClickListener(view -> startActivity(new Intent(HomeScreenUser.this,CartActivity.class)));
     }
 }
