@@ -182,6 +182,9 @@ public class HomeScreenUser extends BaseActivity {
                 intent.putExtra("isSearch",true);
             }
         });
-        binding.cartBtn.setOnClickListener(view -> startActivity(new Intent(HomeScreenUser.this,CartActivity.class)));
+        binding.cartBtn.setOnClickListener(view -> {
+            startActivity(new Intent(HomeScreenUser.this, CartActivity.class));
+            finish();
+        });
     }
 }
