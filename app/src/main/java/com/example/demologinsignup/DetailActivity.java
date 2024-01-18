@@ -59,7 +59,6 @@ public class DetailActivity extends BaseActivity {
             managmentCart.insertFood(object);
         });
     }
-
     private void getIntentExtra() {
         object= (Foods) getIntent().getSerializableExtra("object");
     }
