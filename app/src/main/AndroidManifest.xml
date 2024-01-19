@@ -39,20 +39,25 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".HomeScreenUser"
-            android:exported="true">
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".CartActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
             android:name=".BaseActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".HomeScreen"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
@@ -60,11 +65,7 @@
             android:exported="false"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".Activity.Product_Category_Activity"
@@ -83,7 +84,10 @@
             android:exported="true"
             android:label="@string/title_activity_main"
             >
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Animation.animation"
