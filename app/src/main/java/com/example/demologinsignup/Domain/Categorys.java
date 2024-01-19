@@ -1,11 +1,11 @@
 package com.example.demologinsignup.Domain;
 import com.google.firebase.database.PropertyName;
 
-public class Category {
+public class Categorys {
     private int id;
     private String ImagePath;
     private String Name;
-    public Category() {
+    public Categorys() {
 
     }
     public int getId() {

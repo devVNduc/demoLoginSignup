@@ -7,25 +7,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.example.demologinsignup.Adapter.BestFoodsAdapter;
 import com.example.demologinsignup.Adapter.CategoryAdapter;
-import com.example.demologinsignup.Domain.Category;
+import com.example.demologinsignup.Domain.Categorys;
 import com.example.demologinsignup.Domain.Foods;
 import com.example.demologinsignup.Domain.Location;
 import com.example.demologinsignup.Domain.Price;
 import com.example.demologinsignup.Domain.Time;
 import com.example.demologinsignup.databinding.ActivityHomeScreenUserBinding;
-import com.example.demologinsignup.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
@@ -45,7 +41,7 @@ public class HomeScreenUser extends BaseActivity {
         initTime();
         initPrice();
         initBestFood();
-        initCategory();
+        initCategorys();
         setVariable();
 
     }
@@ -143,16 +139,16 @@ public class HomeScreenUser extends BaseActivity {
             }
         });
     }
-    private void initCategory() {
-        DatabaseReference myRef=database.getReference("Category");
+    private void initCategorys() {
+        DatabaseReference myRef=database.getReference("Categorys");
         binding.progressBarCategory.setVisibility(View.VISIBLE);
-        ArrayList<Category> list = new ArrayList<>();
+        ArrayList<Categorys> list = new ArrayList<>();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     for(DataSnapshot issue: snapshot.getChildren()){
-                        list.add(issue.getValue(Category.class));
+                        list.add(issue.getValue(Categorys.class));
                     }
                     if(list.size()>0){
                         binding.categoryView.setLayoutManager(new GridLayoutManager(HomeScreenUser.this,4));

@@ -12,20 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.example.demologinsignup.Domain.Category;
-import com.example.demologinsignup.Domain.Foods;
+import com.example.demologinsignup.Domain.Categorys;
 import com.example.demologinsignup.ListFoodsActivity;
 import com.example.demologinsignup.R;
 
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewholder> {
-    ArrayList<Category> items;
+    ArrayList<Categorys> items;
     Context context;
 
-    public CategoryAdapter(ArrayList<Category> items) {
+    public CategoryAdapter(ArrayList<Categorys> items) {
         this.items = items;
     }
 

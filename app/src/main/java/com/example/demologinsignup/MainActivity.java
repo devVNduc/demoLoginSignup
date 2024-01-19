@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.demologinsignup.Activity.MainAdminActivity;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
 import com.google.android.gms.auth.api.identity.BeginSignInResult;
 import com.google.android.gms.auth.api.identity.Identity;
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                             });
                         }else{
                             if (LoginUsername.equals("admin") && LoginPassword.equals("Admin123!")){
-                                startActivity(new Intent(MainActivity.this,HomeScreen.class));
+                                startActivity(new Intent(MainActivity.this, MainAdminActivity.class));
                             }else{
                                 startActivity(new Intent(MainActivity.this, HomeScreenUser.class));
                             }
