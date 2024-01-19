@@ -1,37 +1,26 @@
 {
   "project_info": {
-    "project_number": "240059450567",
-    "firebase_url": "https://binh1112-default-rtdb.firebaseio.com",
-    "project_id": "binh1112",
-    "storage_bucket": "binh1112.appspot.com"
+    "project_number": "987836091640",
+    "project_id": "storeproducts-7b38e",
+    "storage_bucket": "storeproducts-7b38e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240059450567:android:f79d8a322ab95d480b2ae2",
+        "mobilesdk_app_id": "1:987836091640:android:309102c4dd7b7d67f1ff0d",
         "android_client_info": {
           "package_name": "com.example.demologinsignup"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "240059450567-50vute43p3j7dur9a5rk8almq3e0qlll.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBLdqy4j7XF-l14PWMEZjEriJHs4QuT0aM"
+          "current_key": "AIzaSyD2crpKPgBBbF2Yu0Xz38wArEV8pQtxgaE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "240059450567-50vute43p3j7dur9a5rk8almq3e0qlll.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

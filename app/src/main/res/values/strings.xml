@@ -8,4 +8,28 @@
     <string name="mo">Mở</string>
     <string name="dong">Đóng</string>
     <string name="default_web_client_id" translatable="false">240059450567-knpi0oov48engoj2grdt5geqnm091pve.apps.googleusercontent.com</string>
+
+
+
+   <string name="ten_dangnhap">Tên Đăng Nhập</string>
+    <string name="matkhau">Mật Khẩu</string>
+    <string name="dangky">Tạo tài khoản mới</string>
+    <string name="title_activity_login2">LoginActivity2</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_home">home</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 </resources>
