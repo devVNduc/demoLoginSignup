@@ -25,7 +25,7 @@ public class CartActivity extends BaseActivity {
         setContentView(binding.getRoot());
 
         managmentCart=new ManagmentCart(this);
-        
+
         setVariable();
         calculateCart();
         initList();
@@ -61,13 +61,14 @@ public class CartActivity extends BaseActivity {
     }
 
     private void setVariable() {
-        binding.backBtn.setOnClickListener(view -> finish());
-        binding.button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(CartActivity.this, HomeScreenUser.class));
-                finish();
-            }
+        binding.backBtn.setOnClickListener(view -> {
+            startActivity(new Intent(CartActivity.this,HomeScreenUser.class));
+            finish();
+        });
+
+        binding.button2.setOnClickListener(view -> {
+            startActivity(new Intent(CartActivity.this, HomeScreenUser.class));
+            finish();
         });
     }
 }

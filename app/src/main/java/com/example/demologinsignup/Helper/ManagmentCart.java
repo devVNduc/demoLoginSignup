@@ -17,7 +17,7 @@ public class ManagmentCart {
         this.context = context;
         this.tinyDB=new TinyDB(context);
     }
-
+//thêm sp vào giỏ hàng
     public void insertFood(Foods item) {
         ArrayList<Foods> listpop = getListCart();
         boolean existAlready = false;
@@ -37,11 +37,11 @@ public class ManagmentCart {
         tinyDB.putListObject("CartList",listpop);
         Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
     }
-
+//trả về danh sách các mặt hàng trong giỏ
     public ArrayList<Foods> getListCart() {
         return tinyDB.getListObject("CartList");
     }
-
+// tính toán và trả về phí giỏ
     public Double getTotalFee(){
         ArrayList<Foods> listItem=getListCart();
         double fee=0;
