@@ -7,21 +7,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.demologinsignup.Adapter.BestFoodsAdapter;
 import com.example.demologinsignup.Adapter.CategoryAdapter;
+import com.example.demologinsignup.Domain.Categorys;
 import com.example.demologinsignup.Domain.Categorys;
 import com.example.demologinsignup.Domain.Foods;
 import com.example.demologinsignup.Domain.Location;
 import com.example.demologinsignup.Domain.Price;
 import com.example.demologinsignup.Domain.Time;
 import com.example.demologinsignup.databinding.ActivityHomeScreenUserBinding;
+import com.example.demologinsignup.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
@@ -158,6 +163,7 @@ public class HomeScreenUser extends BaseActivity {
                     binding.progressBarCategory.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -177,9 +183,6 @@ public class HomeScreenUser extends BaseActivity {
                 intent.putExtra("isSearch",true);
             }
         });
-        binding.cartBtn.setOnClickListener(view -> {
-            startActivity(new Intent(HomeScreenUser.this, CartActivity.class));
-            finish();
-        });
+        binding.cartBtn.setOnClickListener(view -> startActivity(new Intent(HomeScreenUser.this,CartActivity.class)));
     }
 }
