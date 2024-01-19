@@ -252,6 +252,9 @@ public class MainAdminActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.updateCategory) {
             Intent i = new Intent(MainAdminActivity.this, CategoryActivity.class);
             startActivity(i);
+        } else if (item.getItemId() == R.id.nav_logout) {
+            Intent i = new Intent(MainAdminActivity.this, MainAdminActivity.class);
+            startActivity(i);
         }
         return false;
     }

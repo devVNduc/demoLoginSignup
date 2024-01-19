@@ -25,21 +25,21 @@
             android:value="true" />
         <activity
             android:name=".resetPass"
-            android:exported="false" >
+            android:exported="true" >
         </activity>
         <activity
             android:name=".SendOTPActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".VerifyOTPActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".HomeScreenUser"
-            android:exported="false">
+            android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
@@ -48,37 +48,37 @@
         </activity>
         <activity
             android:name=".CartActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".BaseActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".HomeScreen"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity android:name=".ListFoodsActivity"
-            android:exported="false"/>
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true">
         </activity>
         <activity
             android:name=".Activity.Product_Category_Activity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.CategoryActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.Edit"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.DetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.MainAdminActivity"
             android:exported="true"
@@ -91,10 +91,10 @@
         </activity>
         <activity
             android:name=".Animation.animation"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.upload"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
