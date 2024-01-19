@@ -64,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                         intent.putExtra("Status", dataList.get(holder.getAdapterPosition()).getDataStatus());
                         context.startActivity(intent);
                     }
-                }, 3000);
+                }, 1000);
             }
         });
     }

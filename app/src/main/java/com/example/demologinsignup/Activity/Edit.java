@@ -113,7 +113,7 @@ public class Edit extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Edit.this);
         builder.setCancelable(false);
-        builder.setView(R.layout.animation);
+//        builder.setView(R.layout.animation);
         AlertDialog dialog = builder.create();
         dialog.show();
 

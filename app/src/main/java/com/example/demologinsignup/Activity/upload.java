@@ -165,8 +165,6 @@ public void uploadData(){
                 DataclassCategory selectedCategory = snapshot.getValue(DataclassCategory.class);
 
                 String categoryId = selectedCategory.getCategoryId();
-
-
                 String title = updateTitle.getText().toString();
                 String price = updatePrice.getText().toString();
                 String origin = updateOrigin.getText().toString();
@@ -183,7 +181,7 @@ public void uploadData(){
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
                                     Toast.makeText(upload.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(upload.this, animation.class);
+                                    Intent i = new Intent(upload.this, MainAdminActivity.class);
                                     startActivity(i);
                                     finish();
                                 }

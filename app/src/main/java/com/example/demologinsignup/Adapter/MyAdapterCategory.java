@@ -53,7 +53,7 @@ public class MyAdapterCategory extends RecyclerView.Adapter<MyViewHolderCategory
                         intent.putExtra("CategoryId", dataclassCategories.get(holder.getAdapterPosition()).getCategoryId());
                         context.startActivity(intent);
                     }
-                }, 3000);
+                }, 1000);
             }
         });
     }
