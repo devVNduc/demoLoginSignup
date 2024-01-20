@@ -70,10 +70,10 @@ public class MainAdminActivity extends AppCompatActivity {
         recyclerViewCategory = findViewById(R.id.recyclerViewCategory);
         searchView = findViewById(R.id.search);
 
-//        GridLayoutManager gridLayoutManagerCategory = new GridLayoutManager(MainAdminActivity.this, 3);
-//        recyclerViewCategory.setLayoutManager(gridLayoutManagerCategory);
+        GridLayoutManager gridLayoutManagerCategory = new GridLayoutManager(MainAdminActivity.this, 1);
+        recyclerViewCategory.setLayoutManager(gridLayoutManagerCategory);
 
-        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         dataclassCategories = new ArrayList<>();
         myAdapterCategory = new MyAdapterCategory(MainAdminActivity.this, dataclassCategories);
         recyclerViewCategory.setAdapter(myAdapterCategory);
